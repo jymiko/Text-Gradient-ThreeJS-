@@ -47,6 +47,7 @@
             function createText(font) {
                 container = document.createElement( 'div' );
                 document.body.appendChild( container );
+                //Rubah text disini
                 geometry = new THREE.TextGeometry( "JTM", {
                     font: font,
                     size: 10,
@@ -63,9 +64,10 @@
 
                 var centerOffset = -0.5 * ( geometry.boundingBox.max.x - geometry.boundingBox.min.x );
                 
-                
+                //Ganti texture 1 warna atau gradient disini
                 var materials = [
-                    new THREE.MeshBasicMaterial( { vertexColors: THREE.VertexColors, wireframe: false} ),
+                    // new THREE.MeshBasicMaterial( { color: '#4359ff'} ), // aktifkan ini jika ingin 1 warna 
+                    new THREE.MeshBasicMaterial( { vertexColors: THREE.VertexColors, wireframe: false} ), // aktifkan ini jika ingin gradiasi warna
                     new THREE.MeshBasicMaterial( { vertexColors: THREE.VertexColors, wireframe: false } )
                 ];
                 
@@ -78,7 +80,8 @@
                 var length = geometry.faces.length;
 
                 var face, vertex, normalized = new THREE.Vector3(), normalizedAxis = 0;
-
+                
+                //Ganti warna disini 
                 var colors = [{
                     stop: 0,
                     color: new THREE.Color(0xf7b000)
@@ -90,10 +93,10 @@
                     color: new THREE.Color(0x622b85)
                 }, {
                     stop: .85,
-                    color: new THREE.Color(0x007dae)
+                    color: new THREE.Color(0x9b6bba)
                 }, {
                     stop: 1,
-                    color: new THREE.Color(0x77c8db)
+                    color: new THREE.Color(0xff8e5d)
                 }];
 
                 var vertexIndices = ['a', 'b', 'c'];
