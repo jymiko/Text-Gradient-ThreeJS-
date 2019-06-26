@@ -41,33 +41,61 @@
             });
 
             var text;
+            var textTwo;
+            var textThree;
 
             var geometry;
+            var geometryTwo;
+            var geometryThree;
 
             function createText(font) {
                 container = document.createElement( 'div' );
                 document.body.appendChild( container );
                 //Rubah text disini
-                geometry = new THREE.TextGeometry( "JTM", {
+                geometry = new THREE.TextGeometry( "J", {
                     font: font,
                     size: 10,
                     height: 3,
                     curveSegments: 10,
                     bevelEnabled: false
                 });
+
+                //Tambah text tinggal aktifkan fungsi ini
+                geometryTwo = new THREE.TextGeometry( "T", {
+                    font: font,
+                    size: 10,
+                    height: 3,
+                    curveSegments: 10,
+                    bevelEnabled: false
+                });
+
+                geometryThree = new THREE.TextGeometry( "M", {
+                    font: font,
+                    size: 10,
+                    height: 3,
+                    curveSegments: 10,
+                    bevelEnabled: false
+                });
+
                 
 
                 geometry.computeBoundingBox();
 
-                geometry.center();
+                //Tambah text tinggal aktifkan fungsi ini
+                geometryTwo.computeBoundingBox();
+                geometryThree.computeBoundingBox();
 
+                geometry.center();
+                //Tambah text tinggal aktifkan fungsi ini
+                geometryTwo.center();
+                geometryThree.center();
 
                 var centerOffset = -0.5 * ( geometry.boundingBox.max.x - geometry.boundingBox.min.x );
                 
                 //Ganti texture 1 warna atau gradient disini
                 var materials = [
-                    // new THREE.MeshBasicMaterial( { color: '#4359ff'} ), // aktifkan ini jika ingin 1 warna 
-                    new THREE.MeshBasicMaterial( { vertexColors: THREE.VertexColors, wireframe: false} ), // aktifkan ini jika ingin gradiasi warna
+                    new THREE.MeshBasicMaterial( { color: '#4359ff'} ), // aktifkan ini jika ingin 1 warna 
+                    // new THREE.MeshBasicMaterial( { vertexColors: THREE.VertexColors, wireframe: false} ), // aktifkan ini jika ingin gradiasi warna
                     new THREE.MeshBasicMaterial( { vertexColors: THREE.VertexColors, wireframe: false } )
                 ];
                 
@@ -129,15 +157,49 @@
                 text = new THREE.Mesh( geometry, materials );
                 
 
-                text.position.x = 0;
+                text.position.x = -9;
                 text.position.y = 0;
-                text.position.z = 0;
+                text.position.z = -9;
+
+                //merubah rotasi disini
 
                 // text.rotation.x = -1;
-                // text.rotation.y = 1.5;
+                text.rotation.y = 0.3;
                 // text.rotation.z = 1;
 
                 scene.add(text);
+
+                //Tambah text tinggal aktifkan fungsi ini
+                textTwo = new THREE.Mesh( geometryTwo, materials );
+                
+
+                textTwo.position.x = 0;
+                textTwo.position.y = 0;
+                textTwo.position.z = 0;
+
+                //merubah rotasi disini
+
+                // text.rotation.x = -1;
+                text.rotation.y = 0.3;
+                // text.rotation.z = 1;
+
+                scene.add(textTwo);
+
+                //Tambah text tinggal aktifkan fungsi ini
+                textThree = new THREE.Mesh( geometryThree, materials );
+                
+
+                textThree.position.x = 11;
+                textThree.position.y = 5;
+                textThree.position.z = 0;
+
+                //merubah rotasi disini
+
+                // text.rotation.x = -1;
+                text.rotation.y = 0.3;
+                // text.rotation.z = 1;
+
+                scene.add(textThree);
                 
             }
 
